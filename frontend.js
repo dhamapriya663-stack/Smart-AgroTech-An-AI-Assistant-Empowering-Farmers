@@ -1,9 +1,13 @@
 alert("JavaScript Loaded Successfully");
+window.onload = function () {
+  console.log("JS Loaded");
+};
+
 function sendOTP() {
-  console.log("Send OTP clicked");
+  alert("OTP Sent! Demo OTP: 1234");
+
   document.getElementById("login").style.display = "none";
   document.getElementById("otp").style.display = "block";
-  alert("OTP sent successfully!\nDemo OTP: 1234");
 }
 
 function verifyOTP() {
@@ -13,43 +17,22 @@ function verifyOTP() {
     document.getElementById("otp").style.display = "none";
     document.getElementById("form").style.display = "block";
   } else {
-    alert("Invalid OTP. Please enter 1234");
+    alert("Wrong OTP");
   }
 }
 
 function recommend() {
-  const soil = document.getElementById("soil").value;
-
-  let crop = "";
-  let fertilizer = "";
-  let calendar = "";
-
-  if (soil === "Black") {
-    crop = "Cotton";
-    fertilizer = "Urea + Potash";
-    calendar = "Sowing: June | Irrigation: Every 10 days | Harvest: October";
-  } 
-  else if (soil === "Red") {
-    crop = "Groundnut";
-    fertilizer = "DAP";
-    calendar = "Sowing: July | Irrigation: Every 12 days | Harvest: November";
-  } 
-  else {
-    crop = "Rice";
-    fertilizer = "NPK";
-    calendar = "Sowing: June | Irrigation: Weekly | Harvest: December";
-  }
-
   document.getElementById("form").style.display = "none";
   document.getElementById("result").style.display = "block";
 
   document.getElementById("crop").innerText =
-    "🌾 Recommended Crop: " + crop;
+    "🌾 Recommended Crop: Rice";
 
   document.getElementById("fertilizer").innerText =
-    "🧪 Best Fertilizer: " + fertilizer;
+    "🧪 Fertilizer: NPK";
 
   document.getElementById("calendar").innerText =
-    "📅 Crop Calendar: " + calendar;
+    "📅 Sowing: June | Harvest: October";
 }
+
 
