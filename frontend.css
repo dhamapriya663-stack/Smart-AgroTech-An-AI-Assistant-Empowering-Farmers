@@ -1,21 +1,32 @@
 body {
-  font-family: Arial;
-  background: #f4f7f6;
+  font-family: Arial, sans-serif;
+  background: #eaf5ea;
   text-align: center;
 }
 
 #app {
-  background: white;
+  background:pink;
   padding: 30px;
-  width: 350px;
+  width: 360px;
   margin: auto;
-  margin-top: 50px;
-  border-radius: 10px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.title {
+  color: green;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 20px;
 }
 
 input, select, button {
   width: 90%;
-  padding: 8px;
+  padding: 10px;
   margin: 10px 0;
 }
 
@@ -24,4 +35,9 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: darkgreen;
 }
