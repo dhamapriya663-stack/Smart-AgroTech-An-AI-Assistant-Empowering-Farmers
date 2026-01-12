@@ -1,0 +1,2 @@
+# Smart-AgroTech-An-AI-Assistant-Empowering-Farmers
+Smart AgroTech is an AI decision support system for personalized farming. Input cultivated area, soil type, location for optimal crop, fertilizer, and calendar recommendations (sowing, irrigation, harvesting). Integrates real-time weather &amp; crop science. Features OTP auth, interactive dashboard, multilingual support, PWA for low-connectivity.
