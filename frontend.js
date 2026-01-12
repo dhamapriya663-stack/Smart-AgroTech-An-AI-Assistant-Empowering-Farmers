@@ -1,3 +1,4 @@
+alert("JavaScript Loaded Successfully");
 function sendOTP() {
   console.log("Send OTP clicked");
   document.getElementById("login").style.display = "none";
