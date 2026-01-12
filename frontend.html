@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart AgroTech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Phone Login -->
+  <div id="login">
+    <h2>Login with Mobile Number</h2>
+    <input type="text" id="phone" placeholder="Enter mobile number">
+    <button onclick="sendOTP()">Send OTP</button>
+  </div>
+
+  <!-- OTP Verification -->
+  <div id="otp" style="display:none;">
+    <h2>Verify OTP</h2>
+    <input type="text" id="otpInput" placeholder="Enter OTP (1234)">
+    <button onclick="verifyOTP()">Verify</button>
+  </div>
+
+  <!-- Farmer Form -->
+  <div id="form" style="display:none;">
+    <h2>Farmer Details</h2>
+
+    <label>Soil Type</label>
+    <select id="soil">
+      <option>Black</option>
+      <option>Red</option>
+      <option>Alluvial</option>
+    </select>
+
+    <label>Location</label>
+    <input type="text" id="location" placeholder="Enter place">
+
+    <label>Land Area (Acres)</label>
+    <input type="number" id="area">
+
+    <button onclick="recommend()">Get Recommendation</button>
+  </div>
+
+  <!-- Recommendation -->
+  <div id="result" style="display:none;">
+    <h2>AI Recommendation</h2>
+    <p id="crop"></p>
+    <p id="fertilizer"></p>
+    <p id="calendar"></p>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
