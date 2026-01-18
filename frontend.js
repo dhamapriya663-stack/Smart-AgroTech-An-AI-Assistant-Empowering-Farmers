@@ -22,10 +22,10 @@ function submitDetails() {
     return;
   }
 
-  // Show selected crop on dashboard
+  // Show selected crop
   document.getElementById("selectedCrop").innerText = crop;
 
-  // Simple fertilizer logic (demo)
+  // Fertilizer recommendation (demo)
   let fertilizer = "Urea";
 
   if (crop === "Rice") fertilizer = "Urea + DAP";
@@ -35,7 +35,25 @@ function submitDetails() {
 
   document.getElementById("fertilizer").innerText = fertilizer;
 
+  // Market price logic (demo)
+  const priceUp = Math.random() > 0.5;
+
+  document.getElementById("marketCrop").innerText = crop;
+
+  if (priceUp) {
+    document.getElementById("priceTrend").innerText = "Increased 📈";
+    document.getElementById("priceMessage").innerText =
+      "Good time to sell the crop.";
+    document.getElementById("priceMessage").style.color = "green";
+  } else {
+    document.getElementById("priceTrend").innerText = "Decreased 📉";
+    document.getElementById("priceMessage").innerText =
+      "Wait for better market conditions.";
+    document.getElementById("priceMessage").style.color = "red";
+  }
+
   document.getElementById("form").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
 }
+
 
