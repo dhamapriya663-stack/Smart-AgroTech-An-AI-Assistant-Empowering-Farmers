@@ -1,57 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Smart AgroTech</title>
-  <link rel="stylesheet" href="frontend.css">
+  <link rel="stylesheet" href="frontend.css" />
 </head>
 <body>
 
-<div id="app">
+<div class="container">
 
-  <!-- App Title -->
-  <h1 class="title">🌱 Smart AgroTech</h1>
-  <p class="subtitle">AI Assistant Empowering Farmers</p>
-
-  <!-- Phone Login -->
-  <div id="login">
-    <h2>Login with Mobile Number</h2>
-    <input type="text" id="phone" placeholder="Enter mobile number">
-    <button onclick="sendOTP()">Send OTP</button>
+  <!-- LOGIN -->
+  <div id="login" class="card">
+    <h1>🌱 Smart AgroTech</h1>
+    <input type="email" id="email" placeholder="Enter Email" />
+    <input type="tel" id="phone" placeholder="Enter Phone Number" />
+    <button onclick="sendOTP()">Next</button>
   </div>
 
-  <!-- OTP Verification -->
-  <div id="otp" style="display:none;">
+  <!-- OTP -->
+  <div id="otp" class="card hidden">
     <h2>Verify OTP</h2>
-    <input type="text" id="otpInput" placeholder="Enter OTP (1234)">
-    <button onclick="verifyOTP()">Verify OTP</button>
+    <input type="text" id="otpInput" placeholder="Enter OTP" />
+    <button onclick="verifyOTP()">Verify</button>
   </div>
 
-  <!-- Farmer Form -->
-  <div id="form" style="display:none;">
-    <h2>Farmer Details</h2>
+  <!-- USER FORM -->
+  <div id="form" class="card hidden">
+    <h2>Farm Details</h2>
 
-    <label>Soil Type</label>
     <select id="soil">
-      <option>Black</option>
-      <option>Red</option>
-      <option>Alluvial</option>
+      <option value="">Select Soil Type</option>
+      <option>Black Soil</option>
+      <option>Red Soil</option>
+      <option>Alluvial Soil</option>
+      <option>Clay Soil</option>
     </select>
 
-    <label>Location</label>
-    <input type="text" id="location" placeholder="Enter place">
+    <input type="number" id="acres" placeholder="Land Area (Acres)" />
+    <input type="text" id="location" placeholder="Location / District" />
 
-    <label>Land Area (Acres)</label>
-    <input type="number" id="area" placeholder="Enter acres">
-
-    <button onclick="recommend()">Get Recommendation</button>
+    <button onclick="submitDetails()">Submit</button>
   </div>
 
-  <!-- Recommendation -->
-  <div id="result" style="display:none;">
-    <h2>AI Recommendation</h2>
-    <p id="crop"></p>
-    <p id="fertilizer"></p>
-    <p id="calendar"></p>
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden">
+    <h1>🚜 Farmer Dashboard</h1>
+
+    <div class="grid">
+      <div class="box">
+        <h3>🌾 AI Crop Recommendation</h3>
+        <p>Recommended Crop: <b>Rice</b></p>
+        <p>Fertilizer: <b>Urea + DAP</b></p>
+      </div>
+
+      <div class="box">
+        <h3>📅 Crop Calendar</h3>
+        <ul>
+          <li>Sowing: June</li>
+          <li>Irrigation: Every 10 days</li>
+          <li>Harvesting: October</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>🌦 Weather Advisory</h3>
+        <p>Rain expected next week</p>
+        <p>Good time for sowing</p>
+      </div>
+
+      <div class="box">
+        <h3>💬 Community Chat</h3>
+        <div class="chat">
+          <p><b>Farmer A:</b> Use organic fertilizer</p>
+          <p><b>Farmer B:</b> Neem oil works well</p>
+        </div>
+        <input type="text" placeholder="Type message..." />
+      </div>
+    </div>
   </div>
 
 </div>
@@ -59,5 +84,3 @@
 <script src="frontend.js"></script>
 </body>
 </html>
-
-
