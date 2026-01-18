@@ -55,5 +55,13 @@ function submitDetails() {
   document.getElementById("form").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
 }
+function openSection(sectionId) {
+  document.querySelectorAll(".section").forEach(sec => {
+    sec.classList.add("hidden");
+  });
+
+  document.getElementById(sectionId).classList.remove("hidden");
+}
+
 
 
