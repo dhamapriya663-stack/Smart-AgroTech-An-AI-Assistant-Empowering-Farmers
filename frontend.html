@@ -74,19 +74,22 @@
     </div>
 
     <div class="box">
-      <h3>📅 Crop Calendar</h3>
-      <ul>
-        <li>Sowing: June</li>
-        <li>Irrigation: Every 10 days</li>
-        <li>Harvesting: October</li>
-      </ul>
-    </div>
+      <div class="box clickable" onclick="openSection('calendarSection')">
+  <h3>📅 Crop Calendar</h3>
+  <ul>
+    <li>Sowing: June</li>
+    <li>Irrigation: Every 10 days</li>
+    <li>Harvesting: October</li>
+  </ul>
+</div>
 
-    <div class="box">
-      <h3>🌦 Weather Advisory</h3>
-      <p>Rain expected next week</p>
-      <p>Good time for sowing</p>
-    </div>
+
+    <div class="box clickable" onclick="openSection('weatherSection')">
+  <h3>🌦 Weather Advisory</h3>
+  <p>Rain expected next week</p>
+  <p>Good time for sowing</p>
+</div>
+
 
     <div class="box">
       <h3>💬 Community Chat</h3>
@@ -99,6 +102,56 @@
 
   </div>
 </div>
+<div id="calendarSection" class="section hidden">
+  <h2>📅 Cotton Crop Activity Calendar</h2>
+
+  <div class="calendar">
+    <div class="day sowing">June 5<br><small>Sowing</small></div>
+    <div class="day irrigation">June 15<br><small>Irrigation</small></div>
+    <div class="day fertilizer">June 25<br><small>Fertilizer</small></div>
+    <div class="day irrigation">July 5<br><small>Irrigation</small></div>
+    <div class="day harvest">Oct 10<br><small>Harvest</small></div>
+  </div>
+
+  <p class="note">
+    These dates are AI-recommended based on soil, weather, and crop lifecycle.
+  </p>
+</div>
+<div id="fertilizerSection" class="section hidden">
+  <h2>🌱 Why NPK Fertilizer?</h2>
+
+  <ul>
+    <li><b>Nitrogen (N):</b> Improves leaf growth</li>
+    <li><b>Phosphorus (P):</b> Strengthens roots</li>
+    <li><b>Potassium (K):</b> Improves crop resistance</li>
+  </ul>
+
+  <p>
+    This fertilizer is recommended based on soil analysis and crop requirements.
+  </p>
+</div>
+
+  <div id="weatherSection" class="section hidden">
+  <h2>🌦 Detailed Weather Advisory</h2>
+
+  <ul>
+    <li><b>Next 7 Days:</b> Moderate rainfall expected</li>
+    <li><b>Temperature:</b> 24°C – 30°C (Ideal for crop growth)</li>
+    <li><b>Humidity:</b> High – reduces irrigation need</li>
+  </ul>
+
+  <h3>📌 Recommended Actions</h3>
+  <ul>
+    <li>Proceed with sowing after first rainfall</li>
+    <li>Avoid fertilizer application during heavy rain</li>
+    <li>Ensure proper drainage in fields</li>
+  </ul>
+
+  <p class="note">
+    Weather data is analyzed using historical patterns and short-term forecasts.
+  </p>
+</div>
+
 
 
 <script src="frontend.js"></script>
