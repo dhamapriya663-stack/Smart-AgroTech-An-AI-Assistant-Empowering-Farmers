@@ -54,39 +54,52 @@
 
 
   <!-- DASHBOARD -->
-  <div class="box">
-  <h3>🌾 AI Crop Recommendation</h3>
-  <p>Selected Crop: <b id="selectedCrop">--</b></p>
-  <p>Fertilizer: <b id="fertilizer">--</b></p>
-</div>
+  <!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+  <h1>🚜 Farmer Dashboard</h1>
 
-      <div class="box">
-        <h3>📅 Crop Calendar</h3>
-        <ul>
-          <li>Sowing: June</li>
-          <li>Irrigation: Every 10 days</li>
-          <li>Harvesting: October</li>
-        </ul>
-      </div>
+  <div class="grid">
 
-      <div class="box">
-        <h3>🌦 Weather Advisory</h3>
-        <p>Rain expected next week</p>
-        <p>Good time for sowing</p>
-      </div>
-
-      <div class="box">
-        <h3>💬 Community Chat</h3>
-        <div class="chat">
-          <p><b>Farmer A:</b> Use organic fertilizer</p>
-          <p><b>Farmer B:</b> Neem oil works well</p>
-        </div>
-        <input type="text" placeholder="Type message..." />
-      </div>
+    <div class="box">
+      <h3>🌾 AI Crop Recommendation</h3>
+      <p>Selected Crop: <b id="selectedCrop">--</b></p>
+      <p>Fertilizer: <b id="fertilizer">--</b></p>
     </div>
-  </div>
 
+    <div class="box">
+      <h3>📈 Market Price Status</h3>
+      <p>Crop: <b id="marketCrop">--</b></p>
+      <p>Price Trend: <b id="priceTrend">--</b></p>
+      <p id="priceMessage"></p>
+    </div>
+
+    <div class="box">
+      <h3>📅 Crop Calendar</h3>
+      <ul>
+        <li>Sowing: June</li>
+        <li>Irrigation: Every 10 days</li>
+        <li>Harvesting: October</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>🌦 Weather Advisory</h3>
+      <p>Rain expected next week</p>
+      <p>Good time for sowing</p>
+    </div>
+
+    <div class="box">
+      <h3>💬 Community Chat</h3>
+      <div class="chat">
+        <p><b>Farmer A:</b> Use organic fertilizer</p>
+        <p><b>Farmer B:</b> Neem oil works well</p>
+      </div>
+      <input type="text" placeholder="Type message..." />
+    </div>
+
+  </div>
 </div>
+
 
 <script src="frontend.js"></script>
 </body>
