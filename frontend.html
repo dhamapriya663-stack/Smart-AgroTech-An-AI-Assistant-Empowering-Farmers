@@ -25,22 +25,33 @@
   </div>
 
   <!-- USER FORM -->
-  <div id="form" class="card hidden">
-    <h2>Farm Details</h2>
+ <div id="form" class="card hidden">
+  <h2>Farm Details</h2>
 
-    <select id="soil">
-      <option value="">Select Soil Type</option>
-      <option>Black Soil</option>
-      <option>Red Soil</option>
-      <option>Alluvial Soil</option>
-      <option>Clay Soil</option>
-    </select>
+  <select id="soil">
+    <option value="">Select Soil Type</option>
+    <option>Black Soil</option>
+    <option>Red Soil</option>
+    <option>Alluvial Soil</option>
+    <option>Clay Soil</option>
+  </select>
 
-    <input type="number" id="acres" placeholder="Land Area (Acres)" />
-    <input type="text" id="location" placeholder="Location / District" />
+  <select id="crop">
+    <option value="">Select Crop Type</option>
+    <option>Rice</option>
+    <option>Wheat</option>
+    <option>Maize</option>
+    <option>Cotton</option>
+    <option>Sugarcane</option>
+    <option>Vegetables</option>
+  </select>
 
-    <button onclick="submitDetails()">Submit</button>
-  </div>
+  <input type="number" id="acres" placeholder="Land Area (Acres)" />
+  <input type="text" id="location" placeholder="Location / District" />
+
+  <button onclick="submitDetails()">Submit</button>
+</div>
+
 
   <!-- DASHBOARD -->
   <div id="dashboard" class="hidden">
