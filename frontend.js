@@ -15,6 +15,27 @@ function verifyOTP() {
 }
 
 function submitDetails() {
+  const crop = document.getElementById("crop").value;
+
+  if (!crop) {
+    alert("Please select crop type");
+    return;
+  }
+
+  // Show selected crop on dashboard
+  document.getElementById("selectedCrop").innerText = crop;
+
+  // Simple fertilizer logic (demo)
+  let fertilizer = "Urea";
+
+  if (crop === "Rice") fertilizer = "Urea + DAP";
+  else if (crop === "Wheat") fertilizer = "DAP + Potash";
+  else if (crop === "Cotton") fertilizer = "NPK";
+  else if (crop === "Maize") fertilizer = "Urea + Potash";
+
+  document.getElementById("fertilizer").innerText = fertilizer;
+
   document.getElementById("form").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
 }
+
