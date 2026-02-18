@@ -1,159 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Smart AgroTech</title>
-  <link rel="stylesheet" href="frontend.css" />
-</head>
-<body>
-
-<div class="container">
-
-  <!-- LOGIN -->
-  <div id="login" class="card">
-    <h1>🌱 Smart AgroTech</h1>
-    <input type="email" id="email" placeholder="Enter Email" />
-    <input type="tel" id="phone" placeholder="Enter Phone Number" />
-    <button onclick="sendOTP()">Next</button>
-  </div>
-
-  <!-- OTP -->
-  <div id="otp" class="card hidden">
-    <h2>Verify OTP</h2>
-    <input type="text" id="otpInput" placeholder="Enter OTP" />
-    <button onclick="verifyOTP()">Verify</button>
-  </div>
-
-  <!-- USER FORM -->
- <div id="form" class="card hidden">
-  <h2>Farm Details</h2>
-
-  <select id="soil">
-    <option value="">Select Soil Type</option>
-    <option>Black Soil</option>
-    <option>Red Soil</option>
-    <option>Alluvial Soil</option>
-    <option>Clay Soil</option>
-  </select>
-
-  <select id="crop">
-    <option value="">Select Crop Type</option>
-    <option>Rice</option>
-    <option>Wheat</option>
-    <option>Maize</option>
-    <option>Cotton</option>
-    <option>Sugarcane</option>
-    <option>Vegetables</option>
-  </select>
-
-  <input type="number" id="acres" placeholder="Land Area (Acres)" />
-  <input type="text" id="location" placeholder="Location / District" />
-
-  <button onclick="submitDetails()">Submit</button>
-</div>
-
-
-  <!-- DASHBOARD -->
-  <!-- DASHBOARD -->
+<!-- DASHBOARD -->
 <div id="dashboard" class="hidden">
-  <h1>🚜 Farmer Dashboard</h1>
 
-  <div class="grid">
-
-    <div class="box">
-      <h3>🌾 AI Crop Recommendation</h3>
-      <p>Selected Crop: <b id="selectedCrop">--</b></p>
-      <p>Fertilizer: <b id="fertilizer">--</b></p>
-    </div>
-
-    <div class="box">
-      <h3>📈 Market Price Status</h3>
-      <p>Crop: <b id="marketCrop">--</b></p>
-      <p>Price Trend: <b id="priceTrend">--</b></p>
-      <p id="priceMessage"></p>
-    </div>
-
-    <div class="box">
-      <div class="box clickable" onclick="openSection('calendarSection')">
-  <h3>📅 Crop Calendar</h3>
-  <ul>
-    <li>Sowing: June</li>
-    <li>Irrigation: Every 10 days</li>
-    <li>Harvesting: October</li>
-  </ul>
-</div>
-
-
-    <div class="box clickable" onclick="openSection('weatherSection')">
-  <h3>🌦 Weather Advisory</h3>
-  <p>Rain expected next week</p>
-  <p>Good time for sowing</p>
-</div>
-
-
-    <div class="box">
-      <h3>💬 Community Chat</h3>
-      <div class="chat">
-        <p><b>Farmer A:</b> Use organic fertilizer</p>
-        <p><b>Farmer B:</b> Neem oil works well</p>
-      </div>
-      <input type="text" placeholder="Type message..." />
-    </div>
-
-  </div>
-</div>
-<div id="calendarSection" class="section hidden">
-  <h2>📅 Cotton Crop Activity Calendar</h2>
-
-  <div class="calendar">
-    <div class="day sowing">June 5<br><small>Sowing</small></div>
-    <div class="day irrigation">June 15<br><small>Irrigation</small></div>
-    <div class="day fertilizer">June 25<br><small>Fertilizer</small></div>
-    <div class="day irrigation">July 5<br><small>Irrigation</small></div>
-    <div class="day harvest">Oct 10<br><small>Harvest</small></div>
+  <div class="dashboard-header">
+    <h1>🚜 Farmer Dashboard</h1>
   </div>
 
-  <p class="note">
-    These dates are AI-recommended based on soil, weather, and crop lifecycle.
-  </p>
-</div>
-<div id="fertilizerSection" class="section hidden">
-  <h2>🌱 Why NPK Fertilizer?</h2>
+  <!-- MENU BUTTONS -->
+  <div class="menu">
+    <button onclick="showSection('aiSection')">🌾 AI Recommendation</button>
+    <button onclick="showSection('marketSection')">📈 Market Price</button>
+    <button onclick="showSection('calendarSection')">📅 Crop Calendar</button>
+    <button onclick="showSection('weatherSection')">🌦 Weather</button>
+    <button onclick="showSection('chatSection')">💬 Community</button>
+  </div>
 
-  <ul>
-    <li><b>Nitrogen (N):</b> Improves leaf growth</li>
-    <li><b>Phosphorus (P):</b> Strengthens roots</li>
-    <li><b>Potassium (K):</b> Improves crop resistance</li>
-  </ul>
+  <!-- SECTIONS -->
 
-  <p>
-    This fertilizer is recommended based on soil analysis and crop requirements.
-  </p>
-</div>
+  <!-- AI SECTION -->
+  <div id="aiSection" class="section hidden">
+    <h2>🌾 AI Crop Recommendation</h2>
+    <p>Selected Crop: <b id="selectedCrop">--</b></p>
+    <p>Fertilizer: <b id="fertilizer">--</b></p>
+  </div>
 
+  <!-- MARKET SECTION -->
+  <div id="marketSection" class="section hidden">
+    <h2>📈 Market Price Status</h2>
+    <p>Crop: <b id="marketCrop">--</b></p>
+    <p>Trend: <b id="priceTrend">--</b></p>
+    <p id="priceMessage"></p>
+  </div>
+
+  <!-- CALENDAR SECTION -->
+  <div id="calendarSection" class="section hidden">
+    <h2>📅 Crop Calendar (June 2026)</h2>
+    <div class="calendar-grid" id="calendar"></div>
+  </div>
+
+  <!-- WEATHER SECTION -->
   <div id="weatherSection" class="section hidden">
-  <h2>🌦 Detailed Weather Advisory</h2>
+    <h2>🌦 Weather Advisory</h2>
+    <ul>
+      <li>Rain expected next week</li>
+      <li>Temperature: 24°C – 30°C</li>
+      <li>Good time for sowing</li>
+    </ul>
+  </div>
 
-  <ul>
-    <li><b>Next 7 Days:</b> Moderate rainfall expected</li>
-    <li><b>Temperature:</b> 24°C – 30°C (Ideal for crop growth)</li>
-    <li><b>Humidity:</b> High – reduces irrigation need</li>
-  </ul>
+  <!-- CHAT SECTION -->
+  <div id="chatSection" class="section hidden">
+    <h2>💬 Community Chat</h2>
+    <div class="chat">
+      <p><b>Farmer A:</b> Use organic fertilizer</p>
+      <p><b>Farmer B:</b> Neem oil works well</p>
+    </div>
+    <input type="text" placeholder="Type message..." />
+  </div>
 
-  <h3>📌 Recommended Actions</h3>
-  <ul>
-    <li>Proceed with sowing after first rainfall</li>
-    <li>Avoid fertilizer application during heavy rain</li>
-    <li>Ensure proper drainage in fields</li>
-  </ul>
-
-  <p class="note">
-    Weather data is analyzed using historical patterns and short-term forecasts.
-  </p>
 </div>
 
-
-
-<script src="frontend.js"></script>
-</body>
-</html>
