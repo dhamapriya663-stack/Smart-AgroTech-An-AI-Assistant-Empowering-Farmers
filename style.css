@@ -1,85 +1,94 @@
 body {
-    font-family: Arial;
     margin: 0;
-    padding: 0;
-    background: #e8f5e9;
-    text-align: center;
-}
-
-.center-page {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #43cea2, #185a9d);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.main-title {
-    font-size: 50px;
-    margin-bottom: 20px;
+/* Card container */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    width: 380px;
+    text-align: center;
 }
 
+/* Headings */
+h1, h2 {
+    color: #2e7d32;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
 button {
-    padding: 10px 20px;
-    background: green;
+    width: 100%;
+    padding: 12px;
+    background: #2e7d32;
     color: white;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: 16px;
 }
 
-.form-container {
-    margin-top: 100px;
+button:hover {
+    background: #1b5e20;
 }
 
-input, textarea {
-    display: block;
-    margin: 10px auto;
-    padding: 8px;
-    width: 250px;
-}
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 40px;
+/* Dashboard grid */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
 .card {
-    background: white;
-    padding: 30px;
-    margin: 15px;
-    width: 200px;
-    cursor: pointer;
+    background: #f1f8e9;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px gray;
+    cursor: pointer;
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.05);
     background: #c8e6c9;
 }
 
-.error {
-    color: red;
-}
-.market-table {
-    margin: 40px auto;
+/* Market table */
+table {
+    width: 100%;
     border-collapse: collapse;
-    width: 70%;
-    background: white;
 }
 
-.market-table th,
-.market-table td {
+th, td {
+    padding: 10px;
     border: 1px solid #ccc;
-    padding: 12px;
-    text-align: center;
 }
 
-.market-table th {
-    background-color: #4CAF50;
+th {
+    background: #2e7d32;
     color: white;
+}
+
+.decrease {
+    color: red;
+    font-weight: bold;
+}
+
+.increase {
+    color: green;
+    font-weight: bold;
 }
