@@ -1,35 +1,109 @@
-/* NAVBAR STYLE (like LeetCode top bar) */
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body */
+body {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 15px 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: #222;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo {
-  margin: 0;
+.navbar h2 {
+    font-size: 22px;
 }
 
-.nav-links span {
-  margin: 0 15px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #2e7d32;
+.navbar button {
+    background: crimson;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.nav-links span:hover {
-  text-decoration: underline;
+/* Main Container */
+.container {
+    padding: 30px;
 }
 
-.content {
-  padding: 30px;
+/* Card Design */
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.section {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+/* Buttons */
+button {
+    padding: 8px 15px;
+    border: none;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+/* Input Fields */
+input, select {
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #667eea;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
 }
 
