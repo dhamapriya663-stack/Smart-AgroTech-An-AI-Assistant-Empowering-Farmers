@@ -1,58 +1,43 @@
-function goToLogin() {
-    window.location.href = "login.html";
-}
-
-function validateLogin() {
-    let phone = document.getElementById("phone").value;
-    let error = document.getElementById("error");
+// Login Validation
+document.getElementById("loginForm")?.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const phone = document.getElementById("phone").value;
 
     if (phone.length !== 10 || isNaN(phone)) {
-        error.innerText = "Phone number must be exactly 10 digits.";
+        alert("Phone number must be exactly 10 digits");
         return;
     }
 
-    error.innerText = "";
     window.location.href = "farmer.html";
-}
+});
 
-function goToDashboard() {
-    window.location.href = "dashboard.html";
-}
 // Market Data
 const crops = [
-    { name: "Rice", previous: 2250, current: 2100 },
-    { name: "Wheat", previous: 1980, current: 1900 },
-    { name: "Cotton", previous: 6500, current: 6200 },
-    { name: "Maize", previous: 1700, current: 1650 }
+    { name: "Rice", previous: 2200, current: 2050 },
+    { name: "Wheat", previous: 2000, current: 1980 },
+    { name: "Cotton", previous: 6000, current: 6200 },
 ];
 
-function loadMarketData() {
-    const table = document.getElementById("marketData");
+function loadMarket() {
+    const table = document.getElementById("marketBody");
     if (!table) return;
 
     crops.forEach(crop => {
-        const row = document.createElement("tr");
+        const diff = crop.current - crop.previous;
+        let changeClass = diff < 0 ? "decrease" : "increase";
+        let changeText = diff < 0 
+            ? `↓ ₹${Math.abs(diff)}` 
+            : `↑ ₹${diff}`;
 
-        const difference = crop.current - crop.previous;
-
-        let changeText;
-        if (difference < 0) {
-            changeText = "↓ ₹" + Math.abs(difference);
-        } else if (difference > 0) {
-            changeText = "↑ ₹" + difference;
-        } else {
-            changeText = "No Change";
-        }
-
-        row.innerHTML = `
-            <td>${crop.name}</td>
-            <td>${crop.previous}</td>
-            <td>${crop.current}</td>
-            <td>${changeText}</td>
+        table.innerHTML += `
+            <tr>
+                <td>${crop.name}</td>
+                <td>₹${crop.previous}</td>
+                <td>₹${crop.current}</td>
+                <td class="${changeClass}">${changeText}</td>
+            </tr>
         `;
-
-        table.appendChild(row);
     });
 }
 
-window.onload = loadMarketData;
+window.onload = loadMarket;
