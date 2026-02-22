@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Market Status</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Market Status - SmartAgro-Tech</title>
+    <link rel="stylesheet" href="frontend.css">
 </head>
-<body>
+<body onload="showMarketStatus()">
 
-<div class="container">
-    <h2>Market Status</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Crop</th>
-                <th>Previous Price</th>
-                <th>Current Price</th>
-                <th>Change</th>
-            </tr>
-        </thead>
-        <tbody id="marketBody"></tbody>
-    </table>
-    <br>
-    <button onclick="location.href='dashboard.html'">Back</button>
-</div>
+<h1 class="project-title">SmartAgro-Tech</h1>
 
-<script src="script.js"></script>
+<h2 class="page-subtitle">Market Status</h2>
+
+<div id="marketResult" class="card"></div>
+
+<button onclick="location.href='dashboard.html'" class="back-btn">Back</button>
+
+<script src="frontend.js"></script>
+
 </body>
 </html>
