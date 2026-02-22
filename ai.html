@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>AI Crop Recommendation</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>AI Recommendation - SmartAgro-Tech</title>
+    <link rel="stylesheet" href="frontend.css">
 </head>
-<body>
-<div class="container">
-<h2>AI Crop Recommendation</h2>
-<p>Based on soil and climate, recommended crop: 🌾 Rice</p>
-<button onclick="location.href='dashboard.html'">Back</button>
-</div>
+<body onload="showAIRecommendation()">
+
+<h1 class="project-title">SmartAgro-Tech</h1>
+
+<h2 class="page-subtitle">AI Crop Recommendation</h2>
+
+<div id="aiResult" class="card"></div>
+
+<button onclick="location.href='dashboard.html'" class="back-btn">Back</button>
+
+<script src="frontend.js"></script>
+
 </body>
 </html>
