@@ -1,108 +1,60 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Body */
 body {
-    background: linear-gradient(to right, #667eea, #764ba2);
-    min-height: 100vh;
-    color: #333;
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to right, #1f4037, #99f2c8);
+    text-align: center;
 }
 
-/* Navbar */
-.navbar {
-    background: #222;
-    padding: 15px;
+.project-title {
     color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 25px;
+    font-size: 40px;
 }
 
-.navbar h2 {
-    font-size: 22px;
-}
-
-.navbar button {
-    background: crimson;
-    border: none;
-    padding: 8px 15px;
+.page-subtitle {
     color: white;
-    cursor: pointer;
-    border-radius: 5px;
 }
 
-/* Main Container */
-.container {
-    padding: 30px;
-}
-
-/* Card Design */
 .card {
     background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    width: 50%;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Buttons */
+input, select {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
 button {
-    padding: 8px 15px;
-    border: none;
-    background: #667eea;
+    padding: 10px 20px;
+    margin: 10px;
+    background: #2e7d32;
     color: white;
-    border-radius: 5px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 button:hover {
-    background: #5a67d8;
+    background: #1b5e20;
 }
 
-/* Input Fields */
-input, select {
-    padding: 8px;
-    margin: 8px 0;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.up {
+    color: green;
+    font-weight: bold;
 }
 
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
+.down {
+    color: red;
+    font-weight: bold;
 }
 
-th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background: #667eea;
-    color: white;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    table {
-        font-size: 14px;
-    }
+.back-btn {
+    margin-bottom: 40px;
 }
