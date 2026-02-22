@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Market Status</title>
-    <link rel="stylesheet" href="style.css">
+<title>Market Status</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Market Status Price</h2>
-
-<table class="market-table">
-    <thead>
-        <tr>
-            <th>Crop</th>
-            <th>Previous Price (₹)</th>
-            <th>Current Price (₹)</th>
-            <th>Price Change</th>
-        </tr>
-    </thead>
-    <tbody id="marketData">
-    </tbody>
-</table>
+<div class="container">
+    <h2>Market Status</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Crop</th>
+                <th>Previous Price</th>
+                <th>Current Price</th>
+                <th>Change</th>
+            </tr>
+        </thead>
+        <tbody id="marketBody"></tbody>
+    </table>
+    <br>
+    <button onclick="location.href='dashboard.html'">Back</button>
+</div>
 
 <script src="script.js"></script>
 </body>
