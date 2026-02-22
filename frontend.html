@@ -1,61 +1,120 @@
-<!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart AgroTech</title>
+  <link rel="stylesheet" href="frontend.css" />
+</head>
+<body>
 
-  <div class="dashboard-header">
-    <h1>🚜 Farmer Dashboard</h1>
+<div class="container">
+
+  <!-- LOGIN -->
+  <div id="login" class="card">
+    <h1>🌱 Smart AgroTech</h1>
+    <input type="email" id="email" placeholder="Enter Email" />
+    <input type="tel" id="phone" placeholder="Enter Phone Number" />
+    <button onclick="sendOTP()">Next</button>
   </div>
 
-  <!-- MENU BUTTONS -->
-  <div class="menu">
-    <button onclick="showSection('aiSection')">🌾 AI Recommendation</button>
-    <button onclick="showSection('marketSection')">📈 Market Price</button>
-    <button onclick="showSection('calendarSection')">📅 Crop Calendar</button>
-    <button onclick="showSection('weatherSection')">🌦 Weather</button>
-    <button onclick="showSection('chatSection')">💬 Community</button>
+  <!-- OTP -->
+  <div id="otp" class="card hidden">
+    <h2>Verify OTP</h2>
+    <input type="text" id="otpInput" placeholder="Enter OTP" />
+    <button onclick="verifyOTP()">Verify</button>
   </div>
 
-  <!-- SECTIONS -->
+  <!-- USER FORM -->
+  <div id="form" class="card hidden">
+    <h2>Farm Details</h2>
 
-  <!-- AI SECTION -->
-  <div id="aiSection" class="section hidden">
-    <h2>🌾 AI Crop Recommendation</h2>
-    <p>Selected Crop: <b id="selectedCrop">--</b></p>
-    <p>Fertilizer: <b id="fertilizer">--</b></p>
-  </div>
+    <select id="crop">
+      <option value="">Select Crop Type</option>
+      <option>Rice</option>
+      <option>Wheat</option>
+      <option>Cotton</option>
+      <option>Maize</option>
+    </select>
 
-  <!-- MARKET SECTION -->
-  <div id="marketSection" class="section hidden">
-    <h2>📈 Market Price Status</h2>
-    <p>Crop: <b id="marketCrop">--</b></p>
-    <p>Trend: <b id="priceTrend">--</b></p>
-    <p id="priceMessage"></p>
-  </div>
-
-  <!-- CALENDAR SECTION -->
-  <div id="calendarSection" class="section hidden">
-    <h2>📅 Crop Calendar (June 2026)</h2>
-    <div class="calendar-grid" id="calendar"></div>
-  </div>
-
-  <!-- WEATHER SECTION -->
-  <div id="weatherSection" class="section hidden">
-    <h2>🌦 Weather Advisory</h2>
-    <ul>
-      <li>Rain expected next week</li>
-      <li>Temperature: 24°C – 30°C</li>
-      <li>Good time for sowing</li>
-    </ul>
-  </div>
-
-  <!-- CHAT SECTION -->
-  <div id="chatSection" class="section hidden">
-    <h2>💬 Community Chat</h2>
-    <div class="chat">
-      <p><b>Farmer A:</b> Use organic fertilizer</p>
-      <p><b>Farmer B:</b> Neem oil works well</p>
-    </div>
-    <input type="text" placeholder="Type message..." />
+    <input type="number" id="acres" placeholder="Land Area (Acres)" />
+    <button onclick="submitDetails()">Submit</button>
   </div>
 
 </div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+  <h1>🚜 Farmer Dashboard</h1>
+
+  <div class="grid">
+
+    <div class="box clickable" onclick="openSection('aiSection')">
+      <h3>🌾 AI Crop Recommendation</h3>
+      <p>Click to view details</p>
+    </div>
+
+    <div class="box clickable" onclick="openSection('marketSection')">
+      <h3>📈 Market Price Status</h3>
+      <p>Click to view details</p>
+    </div>
+
+    <div class="box clickable" onclick="openSection('calendarSection')">
+      <h3>📅 Crop Calendar</h3>
+      <p>Click to view calendar</p>
+    </div>
+
+    <div class="box clickable" onclick="openSection('weatherSection')">
+      <h3>🌦 Weather Advisory</h3>
+      <p>Click to view details</p>
+    </div>
+
+    <div class="box clickable" onclick="openSection('chatSection')">
+      <h3>💬 Community Chat</h3>
+      <p>Click to open chat</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- DETAIL SECTIONS -->
+
+<div id="aiSection" class="section hidden">
+  <h2>🌾 AI Crop Recommendation</h2>
+  <p>Selected Crop: <b id="selectedCrop">--</b></p>
+  <p>Fertilizer: <b id="fertilizer">--</b></p>
+</div>
+
+<div id="marketSection" class="section hidden">
+  <h2>📈 Market Price Status</h2>
+  <p>Crop: <b id="marketCrop">--</b></p>
+  <p>Trend: <b id="priceTrend">--</b></p>
+  <p id="priceMessage"></p>
+</div>
+
+<div id="calendarSection" class="section hidden">
+  <h2>📅 Crop Calendar (June)</h2>
+  <div class="calendar-grid" id="calendar"></div>
+</div>
+
+<div id="weatherSection" class="section hidden">
+  <h2>🌦 Weather Advisory</h2>
+  <ul>
+    <li>Rain expected next week</li>
+    <li>Temperature: 24°C – 30°C</li>
+    <li>Good time for sowing</li>
+  </ul>
+</div>
+
+<div id="chatSection" class="section hidden">
+  <h2>💬 Community Chat</h2>
+  <div class="chat">
+    <p><b>Farmer A:</b> Use organic fertilizer</p>
+    <p><b>Farmer B:</b> Neem oil works well</p>
+  </div>
+  <input type="text" placeholder="Type message..." />
+</div>
+
+<script src="frontend.js"></script>
+</body>
+</html>
 
