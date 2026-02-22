@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Farmer Details</title>
-    <link rel="stylesheet" href="style.css">
+<title>Farmer Details</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="form-container">
+<div class="container">
     <h2>Farmer Details</h2>
-
-    <input type="text" placeholder="Soil Type">
-    <input type="text" placeholder="Crop Type">
-    <input type="number" placeholder="Acres of Land">
-    <input type="text" placeholder="Location">
-
-    <button onclick="goToDashboard()">Submit</button>
+    <form action="dashboard.html">
+        <input type="text" placeholder="Soil Type" required>
+        <input type="text" placeholder="Crop Type" required>
+        <input type="number" placeholder="Acres of Land" required>
+        <input type="text" placeholder="Location" required>
+        <button type="submit">Submit</button>
+    </form>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
