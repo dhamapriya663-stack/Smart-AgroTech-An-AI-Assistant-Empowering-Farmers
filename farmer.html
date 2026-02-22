@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Farmer Details</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Farmer Details - SmartAgro-Tech</title>
+    <link rel="stylesheet" href="frontend.css">
 </head>
 <body>
 
-<div class="container">
+<h1 class="project-title">SmartAgro-Tech</h1>
+
+<div class="card">
     <h2>Farmer Details</h2>
-    <form action="dashboard.html">
-        <input type="text" placeholder="Soil Type" required>
-        <input type="text" placeholder="Crop Type" required>
-        <input type="number" placeholder="Acres of Land" required>
-        <input type="text" placeholder="Location" required>
-        <button type="submit">Submit</button>
-    </form>
+
+    <input type="text" id="farmerName" placeholder="Farmer Name">
+
+    <label>Select Soil Type:</label>
+    <select id="soilType">
+        <option>Black Soil</option>
+        <option>Red Soil</option>
+        <option>Alluvial Soil</option>
+    </select>
+
+    <label>Select Crop Type:</label>
+    <select id="cropType">
+        <option value="rice">Rice</option>
+        <option value="wheat">Wheat</option>
+        <option value="cotton">Cotton</option>
+    </select>
+
+    <button onclick="saveFarmerDetails()">Save</button>
+    <button onclick="location.href='dashboard.html'">Back</button>
 </div>
+
+<script src="frontend.js"></script>
 
 </body>
 </html>
