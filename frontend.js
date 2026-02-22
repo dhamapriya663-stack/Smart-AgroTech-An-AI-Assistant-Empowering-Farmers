@@ -1,69 +1,92 @@
-// ===== Logout Function =====
-function logout() {
-    localStorage.removeItem("loggedInUser");
-    window.location.href = "login.html"; // keep your login page same
+function saveFarmerDetails() {
+    let name = document.getElementById("farmerName").value;
+    let soil = document.getElementById("soilType").value;
+    let crop = document.getElementById("cropType").value;
+
+    localStorage.setItem("farmerName", name);
+    localStorage.setItem("soilType", soil);
+    localStorage.setItem("cropType", crop);
+
+    alert("Details Saved Successfully!");
 }
 
-// ===== Check Login Status =====
-window.onload = function () {
-    const user = localStorage.getItem("loggedInUser");
+function showMarketStatus() {
 
-    if (!user) {
-        window.location.href = "login.html";
-    } else {
-        const usernameElement = document.getElementById("usernameDisplay");
-        if (usernameElement) {
-            usernameElement.innerText = user;
-        }
-    }
-};
+    let crop = localStorage.getItem("cropType");
+    let resultDiv = document.getElementById("marketResult");
 
-// ===== Add New Entry (Example Feature You Wanted) =====
-function addEntry() {
-    const name = document.getElementById("nameInput").value;
-    const role = document.getElementById("roleInput").value;
+    let prices = {
+        rice: { previous: 2200, current: 2050 },
+        wheat: { previous: 2000, current: 1980 },
+        cotton: { previous: 6000, current: 6200 }
+    };
 
-    if (name === "" || role === "") {
-        alert("Please fill all fields");
+    if (!crop) {
+        resultDiv.innerHTML = "<h3>Please enter Farmer Details first.</h3>";
         return;
     }
 
-    const table = document.getElementById("dataTable");
+    let previous = prices[crop].previous;
+    let current = prices[crop].current;
+    let change = current - previous;
 
-    const newRow = table.insertRow();
+    let changeText = "";
+    if (change > 0) {
+        changeText = `<span class="up">↑ ₹${change}</span>`;
+    } else {
+        changeText = `<span class="down">↓ ₹${Math.abs(change)}</span>`;
+    }
 
-    const cell1 = newRow.insertCell(0);
-    const cell2 = newRow.insertCell(1);
-    const cell3 = newRow.insertCell(2);
-
-    cell1.innerHTML = name;
-    cell2.innerHTML = role;
-    cell3.innerHTML = `<button onclick="deleteRow(this)">Delete</button>`;
-
-    document.getElementById("nameInput").value = "";
-    document.getElementById("roleInput").value = "";
-
-    showSuggestion("New entry added successfully!");
+    resultDiv.innerHTML = `
+        <h3>Crop: ${crop.toUpperCase()}</h3>
+        <p>Previous Price: ₹${previous}</p>
+        <p>Current Price: ₹${current}</p>
+        <p>Change: ${changeText}</p>
+    `;
 }
 
-// ===== Delete Row =====
-function deleteRow(button) {
-    const row = button.parentNode.parentNode;
-    row.remove();
-    showSuggestion("Entry deleted!");
-}
+function showAIRecommendation() {
 
-// ===== Suggestion Message =====
-function showSuggestion(message) {
-    const suggestionBox = document.getElementById("suggestionBox");
-    if (!suggestionBox) return;
+    let crop = localStorage.getItem("cropType");
+    let soil = localStorage.getItem("soilType");
+    let resultDiv = document.getElementById("aiResult");
 
-    suggestionBox.innerText = message;
-    suggestionBox.style.display = "block";
+    if (!crop) {
+        resultDiv.innerHTML = "<h3>Please enter Farmer Details first.</h3>";
+        return;
+    }
 
-    setTimeout(() => {
-        suggestionBox.style.display = "none";
-    }, 3000);
+    let recommendation = "";
+
+    if (crop === "rice") {
+        recommendation = `
+        <h3>Recommended Fertilizer: Urea + DAP</h3>
+        <p><strong>Why:</strong> Rice needs high nitrogen for better grain yield.</p>
+        <p><strong>How:</strong> Apply during sowing and after 25 days.</p>
+        `;
+    }
+
+    if (crop === "wheat") {
+        recommendation = `
+        <h3>Recommended Fertilizer: NPK 20-20-20</h3>
+        <p><strong>Why:</strong> Balanced nutrients for root and grain development.</p>
+        <p><strong>How:</strong> Apply before irrigation.</p>
+        `;
+    }
+
+    if (crop === "cotton") {
+        recommendation = `
+        <h3>Recommended Fertilizer: Potash + Urea</h3>
+        <p><strong>Why:</strong> Improves fiber quality and plant strength.</p>
+        <p><strong>How:</strong> Apply during flowering stage.</p>
+        `;
+    }
+
+    resultDiv.innerHTML = `
+        <h3>Crop: ${crop.toUpperCase()}</h3>
+        <p>Soil Type: ${soil}</p>
+        ${recommendation}
+    `;
 }
 
 
