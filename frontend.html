@@ -1,124 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
 <title>Smart AgroTech</title>
-<link rel="stylesheet" href="frontend.css" />
+<link rel="stylesheet" href="frontend.css">
 </head>
 
 <body>
 
-<div class="container">
+<!-- LOGIN -->
+<div id="loginPage" class="card">
+<h1>🌱 Smart AgroTech</h1>
 
-  <!-- LOGIN -->
-  <div id="login" class="card">
-    <h1>🌱 Smart AgroTech</h1>
-    <input type="email" id="email" placeholder="Enter Email" required />
-    <input type="tel" id="phone" placeholder="Enter 10-digit Phone Number" maxlength="10" />
-    <button onclick="sendOTP()">Next</button>
-  </div>
+<input type="email" placeholder="Enter Email">
+<input type="text" placeholder="Enter Phone Number">
 
-  <!-- OTP -->
-  <div id="otp" class="card hidden">
-    <h2>Verify OTP</h2>
-    <input type="text" id="otpInput" placeholder="Enter OTP" />
-    <button onclick="verifyOTP()">Verify</button>
-  </div>
+<button onclick="showOTP()">Next</button>
+</div>
 
-  <!-- USER FORM -->
-  <div id="form" class="card hidden">
-    <h2>Farm Details</h2>
 
-    <select id="soil">
-      <option value="">Select Soil Type</option>
-      <option>Black Soil</option>
-      <option>Red Soil</option>
-      <option>Alluvial Soil</option>
-      <option>Clay Soil</option>
-    </select>
+<!-- OTP PAGE -->
+<div id="otpPage" class="card hidden">
 
-    <select id="crop">
-      <option value="">Select Crop Type</option>
-      <option>Rice</option>
-      <option>Wheat</option>
-      <option>Maize</option>
-      <option>Cotton</option>
-      <option>Sugarcane</option>
-      <option>Vegetables</option>
-    </select>
+<h2>Verify OTP</h2>
 
-    <input type="number" id="acres" placeholder="Land Area (Acres)" />
-    <input type="text" id="location" placeholder="Location / District" />
+<input type="text" value="1234">
 
-    <button onclick="submitDetails()">Submit</button>
-  </div>
+<button onclick="showFarm()">Verify</button>
 
 </div>
+
+
+<!-- FARM DETAILS -->
+<div id="farmPage" class="card hidden">
+
+<h2>Farm Details</h2>
+
+<select>
+<option>Select Soil Type</option>
+<option>Black Soil</option>
+<option>Red Soil</option>
+<option>Sandy Soil</option>
+</select>
+
+<select>
+<option>Select Crop Type</option>
+<option>Rice</option>
+<option>Wheat</option>
+<option>Cotton</option>
+</select>
+
+<input type="text" placeholder="Land Area (Acres)">
+<input type="text" placeholder="Location / District">
+
+<button onclick="showDashboard()">Submit</button>
+
+</div>
+
+
 
 <!-- DASHBOARD -->
+
 <div id="dashboard" class="hidden">
 
-  <!-- TOP NAVIGATION BAR -->
-  <div class="navbar">
-    <h2 class="logo">🚜 Smart AgroTech</h2>
-    <div class="nav-links">
-      <span onclick="openSection('aiSection')">AI Crop</span>
-      <span onclick="openSection('marketSection')">Market Price</span>
-      <span onclick="openSection('calendarSection')">Crop Calendar</span>
-      <span onclick="openSection('weatherSection')">Weather</span>
-      <span onclick="openSection('chatSection')">Community</span>
-    </div>
-  </div>
+<h1 class="title">🚜 Farmer Dashboard</h1>
 
-  <!-- CONTENT AREA -->
-  <div class="content">
+<div class="grid">
 
-    <div id="aiSection" class="section hidden">
-      <h3>🌾 AI Crop Recommendation</h3>
-      <p>Selected Crop: <b id="selectedCrop">--</b></p>
-      <p>Fertilizer: <b id="fertilizer">--</b></p>
-    </div>
-
-    <div id="marketSection" class="section hidden">
-      <h3>📈 Market Price Status</h3>
-      <p>Crop: <b id="marketCrop">--</b></p>
-      <p>Price Trend: <b id="priceTrend">--</b></p>
-      <p id="priceMessage"></p>
-    </div>
-
-    <div id="calendarSection" class="section hidden">
-      <h3>📅 Cotton Crop Activity Calendar</h3>
-      <div class="calendar">
-        <div class="day sowing">June 5<br><small>Sowing</small></div>
-        <div class="day irrigation">June 15<br><small>Irrigation</small></div>
-        <div class="day fertilizer">June 25<br><small>Fertilizer</small></div>
-        <div class="day irrigation">July 5<br><small>Irrigation</small></div>
-        <div class="day harvest">Oct 10<br><small>Harvest</small></div>
-      </div>
-    </div>
-
-    <div id="weatherSection" class="section hidden">
-      <h3>🌦 Detailed Weather Advisory</h3>
-      <ul>
-        <li>Next 7 Days: Moderate rainfall expected</li>
-        <li>Temperature: 24°C – 30°C</li>
-        <li>Humidity: High</li>
-      </ul>
-    </div>
-
-    <div id="chatSection" class="section hidden">
-      <h3>💬 Community Chat</h3>
-      <div class="chat">
-        <p><b>Farmer A:</b> Use organic fertilizer</p>
-        <p><b>Farmer B:</b> Neem oil works well</p>
-      </div>
-      <input type="text" placeholder="Type message..." />
-    </div>
-
-  </div>
+<div class="box">
+<h3>🌽 AI Crop Recommendation</h3>
+<p>Selected Crop: <b>Rice</b></p>
+<p>Fertilizer: <b>Urea + DAP</b></p>
 </div>
 
+
+<div class="box">
+<h3>📈 Market Price Status</h3>
+<p>Crop: Rice</p>
+<p>Price Trend: <b>Increased 📈</b></p>
+<p class="good">Good time to sell the crop.</p>
+</div>
+
+
+<div class="box">
+<h3>📅 Crop Calendar</h3>
+<ul>
+<li>Sowing: June</li>
+<li>Irrigation: Every 10 days</li>
+<li>Harvesting: October</li>
+</ul>
+</div>
+
+
+<div class="box">
+<h3>🌦 Weather Advisory</h3>
+<p>Rain expected next week</p>
+<p>Good time for sowing</p>
+</div>
+
+
+<div class="box chat">
+<h3>💬 Community Chat</h3>
+
+<div class="chatbox">
+<p><b>Farmer A:</b> Use organic fertilizer</p>
+<p><b>Farmer B:</b> Neem oil works well</p>
+</div>
+
+<input type="text" placeholder="Type message...">
+
+</div>
+
+</div>
+
+</div>
+
+
 <script src="frontend.js"></script>
+
 </body>
 </html>
 
