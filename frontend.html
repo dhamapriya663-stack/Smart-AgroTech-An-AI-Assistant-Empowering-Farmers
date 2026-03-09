@@ -1,127 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Smart AgroTech</title>
-<link rel="stylesheet" href="frontend.css">
+  <title>Smart AgroTech</title>
+  <link rel="stylesheet" href="frontend.css">
 </head>
-
 <body>
 
-<div class="container">
+<div id="app">
 
-<!-- LOGIN -->
-<div id="login" class="card">
-<h1>🌱 Smart AgroTech</h1>
+  <!-- App Title -->
+  <h1 class="title">🌱 Smart AgroTech</h1>
+  <p class="subtitle">AI Assistant Empowering Farmers</p>
 
-<input type="email" id="email" placeholder="Enter Email">
-<input type="tel" id="phone" placeholder="Enter Phone Number">
+  <!-- Phone Login -->
+  <div id="login">
+    <h2>Login with Mobile Number</h2>
+    <input type="text" id="phone" placeholder="Enter mobile number">
+    <button onclick="sendOTP()">Send OTP</button>
+  </div>
 
-<button onclick="sendOTP()">Next</button>
-</div>
+  <!-- OTP Verification -->
+  <div id="otp" style="display:none;">
+    <h2>Verify OTP</h2>
+    <input type="text" id="otpInput" placeholder="Enter OTP (1234)">
+    <button onclick="verifyOTP()">Verify OTP</button>
+  </div>
 
+  <!-- Farmer Form -->
+  <div id="form" style="display:none;">
+    <h2>Farmer Details</h2>
 
-<!-- OTP -->
-<div id="otp" class="card hidden">
+    <label>Soil Type</label>
+    <select id="soil">
+      <option>Black</option>
+      <option>Red</option>
+      <option>Alluvial</option>
+    </select>
 
-<h2>Verify OTP</h2>
+    <label>Location</label>
+    <input type="text" id="location" placeholder="Enter place">
 
-<input type="text" id="otpInput" placeholder="Enter OTP">
+    <label>Land Area (Acres)</label>
+    <input type="number" id="area" placeholder="Enter acres">
 
-<button onclick="verifyOTP()">Verify</button>
+    <button onclick="recommend()">Get Recommendation</button>
+  </div>
 
-</div>
-
-
-<!-- FARM DETAILS -->
-<div id="form" class="card hidden">
-
-<h2>Farm Details</h2>
-
-<select id="soil">
-<option value="">Select Soil Type</option>
-<option>Black Soil</option>
-<option>Red Soil</option>
-<option>Alluvial Soil</option>
-<option>Clay Soil</option>
-</select>
-
-<select id="crop">
-<option value="">Select Crop Type</option>
-<option>Rice</option>
-<option>Wheat</option>
-<option>Maize</option>
-<option>Cotton</option>
-<option>Sugarcane</option>
-<option>Vegetables</option>
-</select>
-
-<input type="number" id="acres" placeholder="Land Area (Acres)">
-<input type="text" id="location" placeholder="Location / District">
-
-<button onclick="submitDetails()">Submit</button>
-
-</div>
-
-
-<!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
-
-<h1 class="title">🚜 Farmer Dashboard</h1>
-
-<div class="grid">
-
-<div class="box">
-<h3>🌾 AI Crop Recommendation</h3>
-<p>Selected Crop: <b id="selectedCrop">--</b></p>
-<p>Fertilizer: <b id="fertilizer">--</b></p>
-</div>
-
-
-<div class="box">
-<h3>📈 Market Price Status</h3>
-<p>Crop: <b id="marketCrop">--</b></p>
-<p>Price Trend: <b id="priceTrend">--</b></p>
-<p id="priceMessage"></p>
-</div>
-
-
-<div class="box">
-<h3>📅 Crop Calendar</h3>
-<ul>
-<li>Sowing: June</li>
-<li>Irrigation: Every 10 days</li>
-<li>Harvesting: October</li>
-</ul>
-</div>
-
-
-<div class="box">
-<h3>🌦 Weather Advisory</h3>
-<p>Rain expected next week</p>
-<p>Good time for sowing</p>
-</div>
-
-
-<div class="box">
-<h3>💬 Community Chat</h3>
-
-<div class="chatbox">
-<p><b>Farmer A:</b> Use organic fertilizer</p>
-<p><b>Farmer B:</b> Neem oil works well</p>
-</div>
-
-<input type="text" placeholder="Type message...">
-
-</div>
-
-</div>
-
-</div>
+  <!-- Recommendation -->
+  <div id="result" style="display:none;">
+    <h2>AI Recommendation</h2>
+    <p id="crop"></p>
+    <p id="fertilizer"></p>
+    <p id="calendar"></p>
+  </div>
 
 </div>
 
 <script src="frontend.js"></script>
-
 </body>
 </html>
