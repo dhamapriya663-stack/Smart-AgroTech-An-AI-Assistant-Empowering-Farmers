@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Verify OTP</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='frontend.css') }}">
+</head>
+
+<body>
+
+<h1 class="title">OTP Verification</h1>
+
+<div class="card">
+
+<p>Enter OTP (Use 1234)</p>
+
+<input type="text" id="otp" placeholder="Enter OTP">
+
+<button onclick="verifyOTP()">Verify</button>
+
+</div>
+
+<script src="{{ url_for('static', filename='frontend.js') }}"></script>
+
+</body>
+</html>
