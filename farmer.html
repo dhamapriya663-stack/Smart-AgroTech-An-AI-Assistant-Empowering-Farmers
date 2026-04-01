@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Farmer Details</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='frontend.css') }}">
+</head>
+
+<body>
+
+<h1 class="title">Farmer Details</h1>
+
+<div class="card">
+
+<select>
+<option>Select Crop</option>
+<option>Rice</option>
+<option>Wheat</option>
+<option>Maize</option>
+<option>Tomato</option>
+</select>
+
+<select>
+<option>Select Soil</option>
+<option>Clay</option>
+<option>Sandy</option>
+<option>Loamy</option>
+</select>
+
+<input type="number" placeholder="Acres">
+<input type="text" placeholder="Location">
+
+<button onclick="goToDashboard()">Submit</button>
+
+</div>
+
+<script src="{{ url_for('static', filename='frontend.js') }}"></script>
+
+</body>
+</html>
