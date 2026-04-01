@@ -1,54 +1,51 @@
-function sendOTP() {
-  console.log("Send OTP clicked");
-  document.getElementById("login").style.display = "none";
-  document.getElementById("otp").style.display = "block";
-  alert("OTP sent successfully!\nDemo OTP: 1234");
+function goToOTP(){
+    window.location.href="/otp"
 }
 
-function verifyOTP() {
-  const otp = document.getElementById("otpInput").value;
+function verifyOTP(){
+    let otp=document.getElementById("otp").value
 
-  if (otp === "1234") {
-    document.getElementById("otp").style.display = "none";
-    document.getElementById("form").style.display = "block";
-  } else {
-    alert("Invalid OTP. Please enter 1234");
-  }
+    if(otp=="1234"){
+        window.location.href="/farmer"
+    }
+    else{
+        alert("Invalid OTP")
+    }
 }
 
-function recommend() {
-  const soil = document.getElementById("soil").value;
-
-  let crop = "";
-  let fertilizer = "";
-  let calendar = "";
-
-  if (soil === "Black") {
-    crop = "Cotton";
-    fertilizer = "Urea + Potash";
-    calendar = "Sowing: June | Irrigation: Every 10 days | Harvest: October";
-  } 
-  else if (soil === "Red") {
-    crop = "Groundnut";
-    fertilizer = "DAP";
-    calendar = "Sowing: July | Irrigation: Every 12 days | Harvest: November";
-  } 
-  else {
-    crop = "Rice";
-    fertilizer = "NPK";
-    calendar = "Sowing: June | Irrigation: Weekly | Harvest: December";
-  }
-
-  document.getElementById("form").style.display = "none";
-  document.getElementById("result").style.display = "block";
-
-  document.getElementById("crop").innerText =
-    "🌾 Recommended Crop: " + crop;
-
-  document.getElementById("fertilizer").innerText =
-    "🧪 Best Fertilizer: " + fertilizer;
-
-  document.getElementById("calendar").innerText =
-    "📅 Crop Calendar: " + calendar;
+function goToDashboard(){
+    window.location.href="/dashboard"
 }
+
+// ---------------- CHAT ----------------
+
+function sendMessage() {
+    let msg = document.getElementById("message").value;
+
+    fetch("/send_message", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "message=" + msg
+    }).then(() => {
+        document.getElementById("message").value = "";
+        loadMessages();
+    });
+}
+
+function loadMessages() {
+    fetch("/get_messages")
+    .then(res => res.json())
+    .then(data => {
+        let chatBox = document.getElementById("chatBox");
+        chatBox.innerHTML = "";
+        data.forEach(msg => {
+            chatBox.innerHTML += "<p>" + msg + "</p>";
+        });
+    });
+}
+
+// auto refresh
+setInterval(loadMessages, 2000);
 
