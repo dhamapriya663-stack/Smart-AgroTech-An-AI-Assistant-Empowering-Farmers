@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Smart Agro Tech - Farmer Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='frontend.css') }}">
+
+</head>
+
+<body>
+
+<h1 class="title">Smart Agro Tech - Farmer Dashboard</h1>
+
+<div class="grid">
+
+<div class="card">
+<h2>AI Fertilizer Recommendation</h2>
+<p>Recommended Fertilizer:<br>NPK Balanced Mix</p>
+</div>
+
+<div class="card">
+<h2>Crop Calendar</h2>
+<p>Sowing: June</p>
+<p>Irrigation: Weekly</p>
+<p>Harvesting: October</p>
+</div>
+
+<!-- WEATHER -->
+<div class="card">
+<h2>Weather Advisory</h2>
+<p>{{ weather }}</p>
+</div>
+
+<!-- CHAT -->
+<div class="card">
+<h2>Community Chat</h2>
+
+<div id="chatBox" style="height:150px; overflow-y:auto; border:1px solid #ccc; padding:10px;"></div>
+
+<input type="text" id="message" placeholder="Type message">
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+<div class="card">
+<h2>Market Price Status</h2>
+<p>Rice Price: ₹2200 / Quintal</p>
+<p class="increase">Price Increased 📈</p>
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='frontend.js') }}"></script>
+
+</body>
+</html>
