@@ -1,43 +1,54 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #eaf5ea;
-  text-align: center;
+body{
+margin:0;
+font-family:Arial;
+background:#cfd8cc;
+text-align:center;
 }
 
-#app {
-  background: white;
-  padding: 30px;
-  width: 360px;
-  margin: auto;
-  margin-top: 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.title{
+color:#2e7d32;
+margin-top:40px;
 }
 
-.title {
-  color: green;
-  margin-bottom: 5px;
+.grid{
+display:grid;
+grid-template-columns:repeat(2,350px);
+gap:30px;
+justify-content:center;
+margin-top:40px;
 }
 
-.subtitle {
-  color: #555;
-  margin-bottom: 20px;
+.card{
+background:#f4f4f4;
+padding:30px;
+border-radius:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+width:300px;
+margin:auto;
 }
 
-input, select, button {
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
+input,select{
+width:90%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
-button {
-  background: green;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+button{
+background:#2e7d32;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+cursor:pointer;
 }
 
-button:hover {
-  background: darkgreen;
+button:hover{
+background:#1b5e20;
+}
+
+.increase{
+color:green;
+font-weight:bold;
 }
